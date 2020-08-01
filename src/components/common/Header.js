@@ -8,7 +8,7 @@ export class Header extends Component {
                     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div>
                             <a href="/" className="navbar-brand">
-                                <b>Employee Management System</b>
+                                <b>Employee Management System (EMS)</b>
                             </a>
                         </div>
                     </nav>

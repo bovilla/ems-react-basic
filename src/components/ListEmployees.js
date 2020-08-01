@@ -4,11 +4,14 @@ export class ListEmployees extends Component {
 
     constructor(props) {
         super(props)
+        
         this.state = {
             employees: []
         }
+
         this.handleAddEmploy = this.handleAddEmploy.bind();
         this.handleUpdateEmploy = this.handleUpdateEmploy.bind();
+        this.handleDeleteEmploy = this.handleDeleteEmploy.bind();
     }
 
     // componentWillMount() {
@@ -56,13 +59,37 @@ export class ListEmployees extends Component {
         this.props.history.push(`/create-update-employ/${empId}`)
     }
 
+    handleDeleteEmploy = (empId) => {
+        // this.props.history.push(`/delete-employ/${empId}`)
+
+        let newEmpList = this.state.employees.filter(emp => emp.id !== empId);
+
+
+        let request = new XMLHttpRequest();
+        request.open('GET',`http://localhost:8080/api/v1/delete-employ/${empId}`);
+        request.send();
+
+        request.onreadystatechange = () => {
+            if(request.status === 200){
+                console.log('employ is deleted');
+                // window.location.reload(true);
+                //to reload the updated list of employees remove the employ from current list of employee in state.
+                this.setState({
+                    employees : newEmpList
+                })
+            }else{
+                console.log(`${request.status} and ${request.statusText}`);
+            }
+        }
+    }
+
 
     render() {
         return (
             <div>
                 <h2 className="text-center">Employees List</h2>
                 <div className="row">
-                    <button className="bnt btn-primary" onClick={this.handleAddEmploy}>Add Employ</button>
+                    <button className="btn btn-primary" onClick={this.handleAddEmploy}>Add Employ</button>
                 </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
@@ -89,7 +116,9 @@ export class ListEmployees extends Component {
                                                 {employ.emailAddress}
                                             </td>
                                             <td>
-                                                <button onClick={() => this.handleUpdateEmploy(employ.id)} className="btn btn-info">Update</button>
+                                                <button className="btn btn-warning" onClick={() => this.handleUpdateEmploy(employ.id)}>Update</button>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <button className="btn btn-danger" onClick={() => this.handleDeleteEmploy(employ.id)}>Delete</button>
                                             </td>
                                         </tr>
                                 )
