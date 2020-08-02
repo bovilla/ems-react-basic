@@ -39,7 +39,7 @@ export class CreateEmploy extends Component {
         console.log('employ => ', JSON.stringify(employ));
         let empJSON = JSON.stringify(employ);
         let request = new XMLHttpRequest();
-        request.open('POST', 'http://localhost:8080/api/v1/employees', true);
+        request.open('POST', 'http://localhost:8080/ems/api/v1/employees', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(empJSON);
 

@@ -20,7 +20,7 @@ export class ListEmployees extends Component {
     //     //1. XMLHTTPRequest
 
     //     // let request = new XMLHttpRequest();
-    //     // request.open("GET", "http://localhost:8080/api/v1/employees");
+    //     // request.open("GET", "http://localhost:8080/ems/api/v1/employees");
     //     // request.send();
     //     // request.onload = () => {
     //     //     console.log(request);
@@ -37,7 +37,7 @@ export class ListEmployees extends Component {
 
     //     //2. fetch
 
-    //     // fetch("http://localhost:8080/api/v1/employees").then(response => {
+    //     // fetch("http://localhost:8080/ems/api/v1/employees").then(response => {
     //     //     console.log('Using fetch API : ', response);
     //     //     // console.log(response);
     //     //     this.setState({
@@ -66,7 +66,7 @@ export class ListEmployees extends Component {
 
 
         let request = new XMLHttpRequest();
-        request.open('GET',`http://localhost:8080/api/v1/delete-employ/${empId}`);
+        request.open('GET',`http://localhost:8080/ems/api/v1/delete-employ/${empId}`);
         request.send();
 
         request.onreadystatechange = () => {
@@ -135,7 +135,7 @@ export class ListEmployees extends Component {
 
         //1. XMLHTTPRequest
         let request = new XMLHttpRequest();
-        request.open("GET", "http://localhost:8080/api/v1/employees");
+        request.open("GET", "http://localhost:8080/ems/api/v1/employees");
         request.send();
         request.onload = () => {
             if (request.status === 200) {

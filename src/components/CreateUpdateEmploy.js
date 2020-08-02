@@ -54,7 +54,7 @@ export class CreateUpdateEmploy extends Component {
         let empJSON = JSON.stringify(employ);
 
         let request = new XMLHttpRequest();
-        request.open('POST', 'http://localhost:8080/api/v1/employees', true);
+        request.open('POST', 'http://localhost:8080/ems/api/v1/employees', true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(empJSON);
 
@@ -82,7 +82,7 @@ export class CreateUpdateEmploy extends Component {
         let empJSON = JSON.stringify(employ);
 
         let request = new XMLHttpRequest();
-        request.open('PUT', `http://localhost:8080/api/v1/employees/${employ.id}`, true);
+        request.open('PUT', `http://localhost:8080/ems/api/v1/employees/${employ.id}`, true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(empJSON);
 
@@ -112,9 +112,9 @@ export class CreateUpdateEmploy extends Component {
         let request = new XMLHttpRequest();
 
         if (undefined === this.state.id) {
-            request.open('POST', 'http://localhost:8080/api/v1/employees', true);
+            request.open('POST', 'http://localhost:8080/ems/api/v1/employees', true);
         } else {
-            request.open('PUT', `http://localhost:8080/api/v1/employees/${employ.id}`, true);
+            request.open('PUT', `http://localhost:8080/ems/api/v1/employees/${employ.id}`, true);
         }
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(emp);
@@ -159,7 +159,7 @@ export class CreateUpdateEmploy extends Component {
             });
 
             let request = new XMLHttpRequest();
-            request.open('GET', `http://localhost:8080/api/v1/employees/${this.props.match.params.id}`);
+            request.open('GET', `http://localhost:8080/ems/api/v1/employees/${this.props.match.params.id}`);
             request.send();
             request.onload = () => {
                 if (request.status === 200) {

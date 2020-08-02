@@ -40,7 +40,7 @@ export class UpdateEmploy extends Component {
         console.log('employ => ', JSON.stringify(employ));
         let empJSON = JSON.stringify(employ);
         let request = new XMLHttpRequest();
-        request.open('PUT', `http://localhost:8080/api/v1/employees/${employ.id}`, true);
+        request.open('PUT', `http://localhost:8080/ems/api/v1/employees/${employ.id}`, true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(empJSON);
 
@@ -67,7 +67,7 @@ export class UpdateEmploy extends Component {
 
         console.log("employ id => ", this.props.match.params.id)
         let request = new XMLHttpRequest();
-        request.open('GET', `http://localhost:8080/api/v1/employees/${this.props.match.params.id}`);
+        request.open('GET', `http://localhost:8080/ems/api/v1/employees/${this.props.match.params.id}`);
         request.send();
         request.onload = () => {
             if (request.status === 200) {
