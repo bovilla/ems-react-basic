@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class CreateUpdateEmploy extends Component {
     constructor(props) {
@@ -38,6 +38,15 @@ export class CreateUpdateEmploy extends Component {
     handleEmailAddressChange = (event) => {
         this.setState({
             emailAddress: event.target.value
+        })
+    }
+
+    handleUpdateProperty = (event) => {
+        let name = event.target.name;
+        let value = event.target.value;
+
+        this.setState({
+            [name] : value
         })
     }
 
@@ -193,19 +202,19 @@ export class CreateUpdateEmploy extends Component {
                                     <div className="form-group">
                                         <label>First Name :</label><br></br>
                                         <input placeholder="First Name" name="firstName" className="form-content"
-                                            defaultValue={this.state.firstName} onChange={this.handleFirstNameChange}></input>
+                                            defaultValue={this.state.firstName} onChange={this.handleUpdateProperty}></input>
                                     </div>
                                     <br></br>
                                     <div className="form-group">
                                         <label>Last Name :</label><br></br>
                                         <input placeholder="Last Name" name="lastName" className="form-content"
-                                            defaultValue={this.state.lastName} onChange={this.handleLastNameChange}></input>
+                                            defaultValue={this.state.lastName} onChange={this.handleUpdateProperty}></input>
                                     </div>
                                     <br></br>
                                     <div className="form-group">
                                         <label>Email Address :</label><br></br>
-                                        <input placeholder="Email Address" name="emailAddres" className="form-content"
-                                            defaultValue={this.state.emailAddress} onChange={this.handleEmailAddressChange}></input>
+                                        <input placeholder="Email Address" name="emailAddress" className="form-content"
+                                            defaultValue={this.state.emailAddress} onChange={this.handleUpdateProperty}></input>
                                     </div>
                                     <br></br>
                                     <br></br>

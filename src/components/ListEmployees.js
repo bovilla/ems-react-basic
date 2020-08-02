@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class ListEmployees extends Component {
 
@@ -63,7 +63,6 @@ export class ListEmployees extends Component {
         // this.props.history.push(`/delete-employ/${empId}`)
 
         let newEmpList = this.state.employees.filter(emp => emp.id !== empId);
-
 
         let request = new XMLHttpRequest();
         request.open('GET',`http://localhost:8080/ems/api/v1/delete-employ/${empId}`);

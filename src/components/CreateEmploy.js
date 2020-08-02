@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class CreateEmploy extends Component {
     constructor(props) {
@@ -12,6 +12,8 @@ export class CreateEmploy extends Component {
         this.handleLastNameChange = this.handleLastNameChange.bind();
         this.handleEmailAddressChange = this.handleEmailAddressChange.bind();
         this.saveEmploy = this.saveEmploy.bind();
+
+        this.handleUpdateProperty = this.handleUpdateProperty.bind();
     }
 
     handleFirstNameChange = (event) => {
@@ -29,6 +31,15 @@ export class CreateEmploy extends Component {
     handleEmailAddressChange = (event) => {
         this.setState({
             emailAddress: event.target.value,
+        })
+    }
+
+    handleUpdateProperty = (event) => {
+        let name = event.target.name;
+        let value = event.target.value;
+
+        this.setState({
+            [name] : value
         })
     }
 
@@ -70,19 +81,19 @@ export class CreateEmploy extends Component {
                                     <div className="form-group">
                                         <label>First Name :</label><br></br>
                                         <input placeholder="First Name" name="firstName" className="form-content"
-                                            value={this.state.firstName} onChange={this.handleFirstNameChange}></input>
+                                            value={this.state.firstName} onChange={this.handleUpdateProperty}></input>
                                     </div>
                                     <br></br>
                                     <div className="form-group">
                                         <label>Last Name :</label><br></br>
                                         <input placeholder="Last Name" name="lastName" className="form-content"
-                                            value={this.state.lastName} onChange={this.handleLastNameChange}></input>
+                                            value={this.state.lastName} onChange={this.handleUpdateProperty}></input>
                                     </div>
                                     <br></br>
                                     <div className="form-group">
                                         <label>Email Address :</label><br></br>
-                                        <input placeholder="Email Address" name="emailAddres" className="form-content"
-                                            value={this.state.emailAddress} onChange={this.handleEmailAddressChange}></input>
+                                        <input placeholder="Email Address" name="emailAddress" className="form-content"
+                                            value={this.state.emailAddress} onChange={this.handleUpdateProperty}></input>
                                     </div>
                                     <br></br>
                                     <br></br>

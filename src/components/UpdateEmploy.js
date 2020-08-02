@@ -14,6 +14,8 @@ export class UpdateEmploy extends Component {
         this.handleFirstNameChange = this.handleFirstNameChange.bind();
         this.handleLastNameChange = this.handleLastNameChange.bind();
         this.handleEmailAddressChange = this.handleEmailAddressChange.bind();
+
+        this.handleUpdateProperty = this.handleUpdateProperty.bind();
     }
 
     handleFirstNameChange = (e) => {
@@ -30,6 +32,15 @@ export class UpdateEmploy extends Component {
     handleEmailAddressChange = (e) => {
         this.setState({
             emailAddress: e.target.value
+        })
+    }
+
+    handleUpdateProperty = (event) => {
+        let name = event.target.name;
+        let value = event.target.value;
+
+        this.setState({
+            [name]: value
         })
     }
 
@@ -100,19 +111,19 @@ export class UpdateEmploy extends Component {
                                     <div className="form-group">
                                         <label>First Name :</label><br></br>
                                         <input name="firstName" className="form-content"
-                                            value={this.state.firstName} onChange={this.handleFirstNameChange}></input>
+                                            value={this.state.firstName} onChange={this.handleUpdateProperty}></input>
                                     </div>
                                     <br></br>
                                     <div className="form-group">
                                         <label>Last Name :</label><br></br>
                                         <input name="lastName" className="form-content"
-                                            value={this.state.lastName} onChange={this.handleLastNameChange} ></input>
+                                            value={this.state.lastName} onChange={this.handleUpdateProperty} ></input>
                                     </div>
                                     <br></br>
                                     <div className="form-group">
                                         <label>Email Address :</label><br></br>
-                                        <input name="emailAddres" className="form-content"
-                                            value={this.state.emailAddress} onChange={this.handleEmailAddressChange}></input>
+                                        <input name="emailAddress" className="form-content"
+                                            value={this.state.emailAddress} onChange={this.handleUpdateProperty}></input>
                                     </div>
                                     <br></br>
                                     <button className="btn btn-success" onClick={this.updateEmploy}>Update</button>
